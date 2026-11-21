@@ -3,14 +3,14 @@
 import React, { useState } from 'react';
 import { SIMULATOR_SCENARIOS } from '@/lib/simulatorScenarios';
 import { REGIONAL_THREAT_LIBRARY } from '@/lib/regionalThreats';
-import { 
-  GraduationCap, 
-  ShieldCheck, 
-  AlertTriangle, 
-  Gamepad2, 
-  Globe, 
-  BookOpen, 
-  CheckCircle2, 
+import {
+  GraduationCap,
+  ShieldCheck,
+  AlertTriangle,
+  Gamepad2,
+  Globe,
+  BookOpen,
+  CheckCircle2,
   HelpCircle,
   ChevronDown,
   ChevronUp,
@@ -41,7 +41,7 @@ export const SafetyCentreView: React.FC = () => {
   const [expandedGuideIndex, setExpandedGuideIndex] = useState<number | null>(0);
 
   // Filtered simulator questions
-  const filteredScenarios = SIMULATOR_SCENARIOS.filter(s => 
+  const filteredScenarios = SIMULATOR_SCENARIOS.filter(s =>
     difficultyFilter === 'ALL' ? true : s.difficulty === difficultyFilter
   );
 
@@ -80,7 +80,7 @@ export const SafetyCentreView: React.FC = () => {
   };
 
   // Filtered regional threat library
-  const filteredRegionalThreats = REGIONAL_THREAT_LIBRARY.filter(t => 
+  const filteredRegionalThreats = REGIONAL_THREAT_LIBRARY.filter(t =>
     selectedLang === 'ALL' ? true : t.language === selectedLang
   );
 
@@ -482,7 +482,7 @@ export const SafetyCentreView: React.FC = () => {
                 key={mod.id}
                 className="p-5 rounded-2xl border border-[#23334C] bg-[#111C30] transition-all space-y-4"
               >
-                <div
+                <button
                   type="button"
                   onClick={() => setExpandedGuideIndex(isExpanded ? null : idx)}
                   className="flex items-center justify-between gap-4 cursor-pointer select-none"
@@ -500,7 +500,7 @@ export const SafetyCentreView: React.FC = () => {
                   <div className="text-slate-400 p-1">
                     {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                   </div>
-                </div>
+                </button>
 
                 {isExpanded && (
                   <div className="pt-2 border-t border-[#23334C]/80 space-y-3.5 animate-fadeIn">
